@@ -12,7 +12,8 @@ class ReferralController extends Controller
      */
     public function index()
     {
-        //
+        $referrals = Referral::latest()->paginate(10);;
+        return view('referral.index', compact('referrals'));
     }
 
     /**

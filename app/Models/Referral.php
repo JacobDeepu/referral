@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Referral extends Model
 {
@@ -16,4 +18,12 @@ class Referral extends Model
         'email',
         'course',
     ];
+
+    /**
+     * Get the user that owns the referral.
+     */
+    public function referrer(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'referrer_id', 'id');
+    }
 }
