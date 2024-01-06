@@ -46,6 +46,21 @@ class User extends Authenticatable
     ];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['referral_link'];
+
+    /**
+     * Get the user's referral link.
+     */
+    public function getReferralLinkAttribute()
+    {
+        return $this->referral_link = "https://niafiawellness.com?ref=" . $this->referral_token;
+    }
+
+    /**
      * Get the referrals for the user.
      */
     public function referrals(): HasMany
