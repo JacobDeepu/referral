@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Referral;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ReferralController extends Controller
@@ -45,7 +46,7 @@ class ReferralController extends Controller
      */
     public function edit(Referral $referral)
     {
-        //
+        return view('referral.edit', compact('referral'));
     }
 
     /**
@@ -53,7 +54,24 @@ class ReferralController extends Controller
      */
     public function update(Request $request, Referral $referral)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'numeric', 'min:10'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'course' => ['nullable', 'string', 'max:255'],
+        ]);
+
+        $referrer_id = User::where('referral_token', $request->referral_token)->pluck('id')->first();
+
+        $referral->update([
+            'referrer_id' => $referrer_id,
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'course' => $request->course,
+        ]);
+
+        return redirect()->route('referral.index');
     }
 
     /**
