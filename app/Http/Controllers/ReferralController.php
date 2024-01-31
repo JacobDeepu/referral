@@ -79,6 +79,7 @@ class ReferralController extends Controller
      */
     public function destroy(Referral $referral)
     {
-        //
+        $referral->delete();
+        return redirect()->route('referral.index');
     }
 }
