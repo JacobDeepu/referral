@@ -7,7 +7,7 @@
     <div class="pb-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                <div class="m-4 w-auto rounded-md border border-gray-200 bg-white bg-profile-bg bg-cover bg-top bg-no-repeat shadow sm:bg-[length:80rem_50%]">
+                <div class="relative m-6 rounded-md border border-gray-200 bg-white bg-profile-bg bg-cover bg-top bg-no-repeat shadow sm:bg-[length:80rem_50%]">
                     <div class="grid items-center gap-4 p-10 sm:grid-cols-6 md:mt-8">
                         <div class="">
                             <img class="h-auto w-auto rounded-full bg-gray-900 shadow-lg sm:h-32 sm:w-32" src="{{ asset('images/user-icon.png') }}" alt="{{ Auth::user()->name }}" />
@@ -39,6 +39,9 @@
                         </div>
                     </div>
                 </div>
+                <h2 class="pl-10 text-xl font-bold leading-tight text-gray-800">
+                    {{ __('Referrals') }}
+                </h2>
                 <div class="relative overflow-x-auto p-6 shadow-md sm:rounded-lg">
                     <table class="w-full text-left text-sm text-gray-500">
                         <thead class="bg-gray-50 text-xs uppercase text-gray-700">
