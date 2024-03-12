@@ -7,6 +7,31 @@
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
+                <div class="m-4 w-auto rounded-md border border-gray-200 bg-white bg-profile-bg bg-[length:80rem_50%] bg-top bg-no-repeat shadow">
+                    <div class="mt-8 grid items-center gap-4 p-10 sm:grid-cols-6">
+                        <img class="h-32 w-32 rounded-full bg-gray-900 shadow-lg" src="{{ asset('images/user-icon.png') }}" alt="{{ Auth::user()->name }}" />
+                        <div class="col-span-5">
+                            <div class="mb-6 flex justify-between items-center" x-data="{ input: '{{ Auth::user()->referral_link }}', showMsg: false }">
+                                <p class="text-lg font-normal text-white">{{ Auth::user()->referral_link }}</p>
+                                <a class="group inline-flex cursor-copy items-center justify-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100"
+                                    type="button" @click="navigator.clipboard.writeText(input), showMsg = true, setTimeout(() => showMsg = false, 1000)">
+                                    <svg class="mr-2 w-4" xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 256 256">
+                                        <path
+                                            d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z">
+                                        </path>
+                                    </svg>
+                                    <div class="fixed bottom-3 right-3 z-20 max-w-sm overflow-hidden rounded border border-green-300 bg-green-100" style="display: none;" x-show="showMsg"
+                                        @click.away="showMsg = false">
+                                        <p class="flex items-center justify-center p-3 text-green-600">Copied to Clipboard</p>
+                                    </div>
+                                    Copy
+                                </a>
+                            </div>
+                            <h5 class="text-xl font-semibold text-gray-900">{{ Auth::user()->name }}</h5>
+                            <p class="text-lg font-normal text-gray-900">{{ Auth::user()->email }}</p>
+                        </div>
+                    </div>
+                </div>
                 <div class="relative overflow-x-auto p-6 shadow-md sm:rounded-lg">
                     <table class="w-full text-left text-sm text-gray-500">
                         <thead class="bg-gray-50 text-xs uppercase text-gray-700">
