@@ -7,11 +7,13 @@
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                <div class="m-4 w-auto rounded-md border border-gray-200 bg-white bg-profile-bg bg-[length:80rem_50%] bg-top bg-no-repeat shadow">
-                    <div class="mt-8 grid items-center gap-4 p-10 sm:grid-cols-6">
-                        <img class="h-32 w-32 rounded-full bg-gray-900 shadow-lg" src="{{ asset('images/user-icon.png') }}" alt="{{ Auth::user()->name }}" />
+                <div class="m-4 w-auto rounded-md border border-gray-200 bg-white bg-profile-bg bg-cover bg-top bg-no-repeat shadow sm:bg-[length:80rem_50%]">
+                    <div class="grid items-center gap-4 p-10 sm:grid-cols-6 md:mt-8">
+                        <div class="">
+                            <img class="h-auto w-auto rounded-full bg-gray-900 shadow-lg sm:h-32 sm:w-32" src="{{ asset('images/user-icon.png') }}" alt="{{ Auth::user()->name }}" />
+                        </div>
                         <div class="col-span-5">
-                            <div class="mb-6 flex justify-between items-center" x-data="{ input: '{{ Auth::user()->referral_link }}', showMsg: false }">
+                            <div class="mb-6 flex items-center justify-between" x-data="{ input: '{{ Auth::user()->referral_link }}', showMsg: false }">
                                 <p class="text-lg font-normal text-white">{{ Auth::user()->referral_link }}</p>
                                 <a class="group inline-flex cursor-copy items-center justify-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100"
                                     type="button" @click="navigator.clipboard.writeText(input), showMsg = true, setTimeout(() => showMsg = false, 1000)">
@@ -27,8 +29,8 @@
                                     Copy
                                 </a>
                             </div>
-                            <h5 class="text-xl font-semibold text-gray-900">{{ Auth::user()->name }}</h5>
-                            <p class="text-lg font-normal text-gray-900">{{ Auth::user()->email }}</p>
+                            <h5 class="text-xl font-semibold text-white sm:text-gray-900">{{ Auth::user()->name }}</h5>
+                            <p class="text-lg font-normal text-white sm:text-gray-900">{{ Auth::user()->email }}</p>
                         </div>
                     </div>
                 </div>
