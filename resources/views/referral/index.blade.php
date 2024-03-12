@@ -29,8 +29,13 @@
                                     Copy
                                 </a>
                             </div>
-                            <h5 class="text-xl font-semibold text-white sm:text-gray-900">{{ Auth::user()->name }}</h5>
-                            <p class="text-lg font-normal text-white sm:text-gray-900">{{ Auth::user()->email }}</p>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h5 class="text-xl font-semibold text-white sm:text-gray-900">{{ Auth::user()->name }}</h5>
+                                    <p class="text-lg font-normal text-white sm:text-gray-900">{{ Auth::user()->email }}</p>
+                                </div>
+                                {!! QrCode::size(50)->generate(Auth::user()->referral_link) !!}
+                            </div>
                         </div>
                     </div>
                 </div>
