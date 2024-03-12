@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->after('password', function (Blueprint $table) {
-                $table->string('referral_token', 8)->unique();;
+                $table->string('referral_token', 8)->unique();
             });
         });
     }

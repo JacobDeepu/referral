@@ -57,7 +57,7 @@ class User extends Authenticatable
      */
     public function getReferralLinkAttribute()
     {
-        return $this->referral_link = "https://niafiawellness.com?ref=" . $this->referral_token;
+        return $this->referral_link = 'https://niafiawellness.com?ref='.$this->referral_token;
     }
 
     /**

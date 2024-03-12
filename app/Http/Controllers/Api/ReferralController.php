@@ -27,7 +27,7 @@ class ReferralController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'numeric', 'min:10'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'course' => ['nullable', 'string', 'max:255'],
         ]);
 
@@ -60,7 +60,7 @@ class ReferralController extends Controller
         $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'numeric', 'min:10'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'course' => ['nullable', 'string', 'max:255'],
         ]);
 
@@ -75,6 +75,7 @@ class ReferralController extends Controller
     public function destroy(Referral $referral)
     {
         $referral->delete();
+
         return response('success', 200);
     }
 }

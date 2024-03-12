@@ -13,7 +13,8 @@ class ReferralController extends Controller
      */
     public function index()
     {
-        $referrals = Referral::latest()->paginate(10);;
+        $referrals = Referral::latest()->paginate(10);
+
         return view('referral.index', compact('referrals'));
     }
 
@@ -57,7 +58,7 @@ class ReferralController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'numeric', 'min:10'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'course' => ['nullable', 'string', 'max:255'],
         ]);
 
@@ -80,6 +81,7 @@ class ReferralController extends Controller
     public function destroy(Referral $referral)
     {
         $referral->delete();
+
         return redirect()->route('referral.index');
     }
 }
