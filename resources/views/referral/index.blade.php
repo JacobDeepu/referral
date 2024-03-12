@@ -1,10 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Referrals') }}
+        <h2 class="text-2xl font-bold leading-tight text-gray-800">
+            {{ __('Admin Dashboard') }}
         </h2>
     </x-slot>
-    <div class="py-12">
+    <div class="pb-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                 <div class="m-4 w-auto rounded-md border border-gray-200 bg-white bg-profile-bg bg-cover bg-top bg-no-repeat shadow sm:bg-[length:80rem_50%]">
